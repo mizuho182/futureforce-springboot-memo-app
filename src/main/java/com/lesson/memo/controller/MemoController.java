@@ -32,14 +32,14 @@ public class MemoController {
     private MemoRepository memoRepository;
 
     @GetMapping
+    public String list(@RequestParam(required=false) String key,Model model) {
 
-    public String list(@RequestParam(required = false) String key, Model model) {
     	List<Memo>memos;
-    	if(key == null || key.isEmpty()) {
+    	if(key == null || key.isBlank()) {
     		memos=memoRepository.findAll();
     	}
     	else {
-    		memos=memoRepository.findByTitleContaining(key);
+    		memos=memoRepository.findByTitleContainingOrContentContaining(key,key);
     	}
         memos.sort(Comparator.comparing(Memo::getPriority));
         model.addAttribute("memos", memos);
