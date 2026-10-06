@@ -1,4 +1,4 @@
-package com.lesson.memo.model;
+	package com.lesson.memo.model;
 
 import java.time.LocalDateTime;
 
@@ -39,4 +39,5 @@ public class Memo {
     
     @NotNull (message="必須")
     private Priority priority;
+
 }
