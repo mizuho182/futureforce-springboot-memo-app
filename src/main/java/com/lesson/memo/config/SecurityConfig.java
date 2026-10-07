@@ -20,13 +20,13 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http)throws Exception{
 		http.userDetailsService(adminDetailService);
 		http.authorizeHttpRequests(au -> au
-				.requestMatchers("/admin/signup","/admin/signin").permitAll()
+				.requestMatchers("/admin/signup","/admin/signin","/css/**","/js/**").permitAll()
 				.anyRequest().authenticated()
 				);
 		http.formLogin(form -> form
 				.loginPage("/admin/signin")
 				.loginProcessingUrl("/admin/signin")
-				.defaultSuccessUrl("/",true)
+				.defaultSuccessUrl("/memos",true)
 				);
 		return http.build();
 	}

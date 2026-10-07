@@ -5,10 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div>
+		<a href="/admin/signup">新規登録画面へ</a>
+	</div>
 	<form th:action="@{/admin/signin}" method="post">
 	<div>
 		<label>メールアドレス:</label>
-		<input type="email" neme="username">
+		<input type="email" name="username">
 	</div>
 	<div>
 		<label>パスワード:</label>

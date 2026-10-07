@@ -8,9 +8,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
@@ -22,22 +23,22 @@ public class Admin {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private  Long id;
 	
-	@NotNull
+	@NotBlank
 	@Column(length=255, nullable=false)
 		private String last_name;
-	@NotNull
+	@NotBlank
 	@Column(length=255,nullable=false)
 		private String first_name;
 	@Email
 	@Column(length=255 ,unique=true,nullable=false)
-	@NotNull
+	@NotBlank
 		private String email;
-	@NotNull
+	@NotBlank
 	@Column(length=255 , nullable=false)
 		private String password;
-	@DateTimeFormat
+	@CreationTimestamp
 		private LocalDateTime created_at;
-	@DateTimeFormat
+	@UpdateTimestamp
 		private LocalDateTime updated_at;
 	
 }
