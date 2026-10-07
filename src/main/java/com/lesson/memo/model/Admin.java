@@ -23,18 +23,17 @@ public class Admin {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private  Long id;
 	
-	@NotBlank
+	@NotBlank(message="入力必須です")
 	@Column(length=255, nullable=false)
 		private String last_name;
-	@NotBlank
+	@NotBlank(message="入力必須です")
 	@Column(length=255,nullable=false)
 		private String first_name;
 	@Email
 	@Column(length=255 ,unique=true,nullable=false)
-	@NotBlank
+	@NotBlank(message="入力必須です")
 		private String email;
-	@NotBlank
-	@Column(length=255 , nullable=false)
+	@NotBlank(message="入力必須です")
 		private String password;
 	@CreationTimestamp
 		private LocalDateTime created_at;

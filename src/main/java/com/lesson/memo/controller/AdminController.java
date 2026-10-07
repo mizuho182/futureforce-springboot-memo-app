@@ -36,6 +36,13 @@ public class AdminController {
 				if(result.hasErrors()) {
 					return "admin-signup";
 				}
+				if(adminRepository.findByEmail(admin.getEmail()).isPresent()) {
+					result.rejectValue(
+							"email",
+							"double",
+							"このメールアドレスは登録済みです");
+					return "admin-signup";
+				}
 			admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 			adminRepository.save(admin);
 			return "redirect:/admin/signin";

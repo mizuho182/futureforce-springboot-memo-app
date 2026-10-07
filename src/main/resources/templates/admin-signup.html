@@ -12,18 +12,22 @@
 	<div>
 		<label>姓:</label>
 		<input type="text" th:field="*{last_name}">
+		<div th:errors="*{last_name}"></div>
 	</div>
 	<div>
 		<label>名:</label>
 		<input type="text" th:field="*{first_name}">
+		<div th:errors="*{first_name}"></div>
 	</div>
 	<div>
 		<label>メールアドレス:</label>
 		<input type="email" th:field="*{email}">
+		<div th:errors="*{email}"></div>
 	</div>
 	<div>
 		<label>パスワード:</label>
 		<input type="password" th:field="*{password}">
+		<div th:errors="*{password}"></div>
 	</div>
 	<button type="submit">登録</button>
 	</form>
