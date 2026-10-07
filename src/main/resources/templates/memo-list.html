@@ -17,6 +17,9 @@
                 <i class="ri-add-circle-line"></i> 新規メモ
             </a>
         </div>
+		<form th:action="@{/logout}" method="post">
+			<button type="submit">ログアウト</button>
+		</form>
 		<form th:action="@{/memos}" method="get">
 			<input type="text" name="key" placeholder="検索キーワード">
 			<button type="submit">検索</button>

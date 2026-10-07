@@ -33,6 +33,7 @@ public class MemoController {
 
     @GetMapping
     public String list(@RequestParam(required=false) String key,Model model) {
+
     	List<Memo>memos;
     	if(key == null || key.isBlank()) {
     		memos=memoRepository.findAll();
@@ -40,7 +41,6 @@ public class MemoController {
     	else {
     		memos=memoRepository.findByTitleContainingOrContentContaining(key,key);
     	}
-    	
         memos.sort(Comparator.comparing(Memo::getPriority));
         model.addAttribute("memos", memos);
         return "memo-list";

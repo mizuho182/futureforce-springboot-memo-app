@@ -39,5 +39,4 @@ public class Memo {
     
     @NotNull (message="必須")
     private Priority priority;
-
 }
